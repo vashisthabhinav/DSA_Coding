@@ -3,6 +3,7 @@ package Beginner.Arrays;
 import java.util.Arrays;
 
 public class AR_04_DuplicateZeros {
+    
     public static void duplicateZerosMethod1(int[] arr) {
         int l = arr.length;
         int ind = 0;
@@ -50,18 +51,42 @@ public class AR_04_DuplicateZeros {
         System.out.println("}");
     }
 
-    public static void duplicateZerosMethod2(int[] nums) {
-        int noOfZeros=0;
-        for (int i = 0; i <nums.length ; i++) {
-            if (nums[i]==0){
-                noOfZeros++;
+    public static void duplicateZerosMethod2(int[] arr) {
+        int possibleDuplicates = 0;
+        int length_ = arr.length - 1;
+
+        // Find the number of zeros to be duplicated
+        // Stopping when left points beyond the last element in the original array
+        // which would be part of the modified array
+        for (int left = 0; left <= length_ - possibleDuplicates; left++) {
+
+            // Count the zeros
+            if (arr[left] == 0) {
+
+                // Edge case: This zero can't be duplicated. We have no more space,
+                // as left is pointing to the last element which could be included
+                if (left == length_ - possibleDuplicates) {
+                    // For this zero we just copy it without duplication.
+                    arr[length_] = 0;
+                    length_ -= 1;
+                    break;
+                }
+                possibleDuplicates++;
             }
         }
-        int [] newArray = new int[nums.length+noOfZeros];
-        for (int i = 0; i <nums.length ; i++) {
-            newArray[i]=nums[i];
-        }
-//        System.out.println(Arrays.toString(newArray));
 
+        // Start backwards from the last element which would be part of new array.
+        int last = length_ - possibleDuplicates;
+
+        // Copy zero twice, and non zero once.
+        for (int i = last; i >= 0; i--) {
+            if (arr[i] == 0) {
+                arr[i + possibleDuplicates] = 0;
+                possibleDuplicates--;
+                arr[i + possibleDuplicates] = 0;
+            } else {
+                arr[i + possibleDuplicates] = arr[i];
+            }
+        }
     }
 }
