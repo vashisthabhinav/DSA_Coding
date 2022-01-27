@@ -2,10 +2,12 @@ package Beginner.Arrays;
 
 public class AR_07_RemoveDuplicates {
     public static int removeDuplicates1(int[] nums) {
-        if(nums.length == 0) return 0;
+        
         /*
         Problem with this method is that the relative order of elements is not same.
          */
+        
+        if(nums.length == 0) return 0;
         int k= nums.length;
         int j= 0;//No of occurrences of the element to be removed
         int m = nums.length-1;
