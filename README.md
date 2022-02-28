@@ -1,2 +1,2 @@
 # Leetcode
-I have added my solved LeetCode problems in this repository
+I have added solution of LeetCode problems in this repository
