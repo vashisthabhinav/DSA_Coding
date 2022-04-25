@@ -26,5 +26,6 @@ public class B_04_EvenDigitsOptimized {
             num = (-1)*num;
         }
         return (int)(Math.log10(num)) +1;
+        //This is the inbuilt function which can be used in Java
     }
 }
