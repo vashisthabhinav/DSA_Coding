@@ -12,13 +12,16 @@ public class B_06_PositionOfElement {
         int index = -1;
         int start = 0;
         int end = 1;
-        while (target>arr[end]){
+        while (target>arr[end]){//If the target element is greater than the end, then it will definitely be greater than the start.
+//            And if the target element is smaller than the start index as well, -1 will be returned straightaway as there is no potential answer.
+
             int newStart = end + 1;
             //Doubling the box value
             // end is equal to the previous end + sizeOfBox*2
-            // size of box with indices 2-5 then the length is :- 4
+            // size of box with indices 2-5 then the length is : 4
+            // No of elements in a box are : end - (start-1) i.e., total elements - the elements already covered
             //      [5-{2+1}] = 4
-            end = end + (end-start+1)*2;
+            end = end + (end-start+1)*2;//Using the previous start in this case
             start = newStart;// Updating the start value for the next iteration after updating the formula.
         }
         index = binarySearch(arr, target,start,end);

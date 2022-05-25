@@ -1,6 +1,10 @@
 package Bootcamp.BinarySearch;
 
 public class B_04_NextGreaterLetter {
+//    Q-744 LeetCode
+/*
+Given a characters array letters that is sorted in non-decreasing order and a character target, return the smallest character in the array that is larger than target.
+*/
     static char nextGreatestLetter(char[] letters, char target) {
         int start = 0;
         int end  = letters.length-1;
@@ -15,7 +19,7 @@ public class B_04_NextGreaterLetter {
         Condition violated- start = end+1 = letters.length
         In this case loop will break when e=2(or letters.length-1 in any other case) and s=3(or letters.length in any other case) (s>e)
         Now we have to return 'c' i.e., at index 0
-        so- start%letters.length = 3%3 i.e, 0
+        so - start%letters.length = 3%3 i.e, 0
         In every other case when start is less than letters.length
         start%letters.length = start only.
          */

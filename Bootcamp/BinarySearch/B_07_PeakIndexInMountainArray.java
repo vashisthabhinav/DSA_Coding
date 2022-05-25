@@ -1,6 +1,7 @@
 package Bootcamp.BinarySearch;
 
 public class B_07_PeakIndexInMountainArray {
+//    Q852 LeetCode
     public static int peakIndexInMountainArray(int[] arr) {
         int start = 0;
         int end = arr.length-1;
@@ -14,7 +15,7 @@ public class B_07_PeakIndexInMountainArray {
             }
             else{
                 // This is the ascending part of the array.
-                start = mid+1;//Because we know that mid+1 elements > mid element
+                start = mid+1;//Because we know that mid+1 elements > mid element, because the above if statement is false
             }
         }
         /*

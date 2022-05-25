@@ -8,7 +8,9 @@ public class B_08_SearchInRotatedSortedArray {
         7 is the pivot.
         i.e., pivot is when mid>mid+1 or mid<mid-1
          */
+        int start = 0, end = nums.length-1;
         int index = -1;
+//        while(start<)
         return index;
     }
 
