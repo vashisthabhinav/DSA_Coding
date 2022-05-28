@@ -24,5 +24,17 @@ public class K_02_06A_NumberOfGoodPairs {
     public static void main(String[] args) {
         int [] nums = {1,1,1,1};
         System.out.println((numIdenticalPairs(nums)));
+        System.out.println((numIdenticalPairs1(nums)));
+    }
+    public static int numIdenticalPairs1(int[] nums) {//Less effective but easy to understand
+        int goodPairs = 0;
+        for(int i = 0; i < nums.length; i++){
+            for(int j = 0; j<nums.length;j++){
+                if(i<j && nums[i]==nums[j]){
+                    goodPairs++;
+                }
+            }
+        }
+        return goodPairs;
     }
 }

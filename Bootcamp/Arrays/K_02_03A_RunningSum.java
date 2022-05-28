@@ -25,5 +25,15 @@ public class K_02_03A_RunningSum {
     public static void main(String[] args) {
         int [] nums = {3,1,2,10,1};
         System.out.println(Arrays.toString(runningSum(nums)));
+        System.out.println(Arrays.toString(runningSum1(nums)));
+    }
+    public static int[] runningSum1(int[] nums) {
+        int[] runningSum = new int[nums.length];//Initializing the array
+        int sum = 0;
+        for(int i = 0; i<nums.length; i++){
+            sum += nums[i];//Taking the sum of all the previous elements present in the array
+            runningSum[i] = sum;//Adding the sum at the index i
+        }
+        return runningSum;
     }
 }
