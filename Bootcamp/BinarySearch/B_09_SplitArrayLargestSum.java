@@ -35,7 +35,6 @@ public class B_09_SplitArrayLargestSum {
             }else {
                 end = mid;
             }
-
         }
         return start;//start = end
     }
