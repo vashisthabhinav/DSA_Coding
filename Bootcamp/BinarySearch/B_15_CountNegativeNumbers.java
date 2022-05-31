@@ -3,8 +3,16 @@ package Bootcamp.BinarySearch;
 public class B_15_CountNegativeNumbers {
     //Q1351
     public static void main(String[] args) {
-        int [] [] grid = { {-1,-1,-2,-3}};
+        int [] [] grid =
+                {
+                        { 5, 4, 3, 1},
+                        { 4, 3, 2,-1},
+                        { 3, 2, 1,-1},
+                        { 1, 1,-1,-2},
+                        {-1,-1,-2,-3}
+                };
         System.out.println(countNegatives(grid));
+        System.out.println(countNegatives1(grid));
     }
     public static int countNegatives(int[][] grid) {
         // O(nlogn) time complexity
@@ -29,5 +37,27 @@ public class B_15_CountNegativeNumbers {
             }
         }
         return negatives;//Total negatives of the sub-array returned to be added into total negative numbers present in the grid
+    }
+    public static int countNegatives1(int[][] grid) {
+        // O(n) time complexity
+        //This is a row-column 2D matrix --> It decreases row-wise and column wise
+        //If the value is negative at any place, then the values of the other elements in the same column below that element will also be negative
+        // So all the values till the end column can be added to the column, and we can shift towards the left column -->column--
+        //And if the value is positive then all the values of the rows before that element on the left side will also be positive
+        // so all those values can be ignored and straightaway we can move onto the next row --> row++
+        int negativeCount = 0, row = 0, col = grid[0].length-1;
+
+        while (row<grid.length && col>=0){
+            if (grid[row][col]<0){
+                //It means that it is a negative value and every integer in the same column following this element(below) will be negative
+                negativeCount += grid.length - row;//This will give the number of rows that are below that element in the same column
+                col--;//Now checking for the column on the left part of the matrix
+            }else{
+                //It means that the current element is non-positive and all the elements left to teh same row will be greater than the current element
+                // So, they all will be positive as well so ignoring the row and checking for the negatives in the next row
+                row++;//
+            }
+        }
+        return negativeCount;
     }
 }
