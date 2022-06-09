@@ -1,6 +1,6 @@
 package Bootcamp.Recursions;
 
-public class B_01_FibonacciSeries {
+public class B_02_FibonacciSeries {
     public static void main(String[] args) {
         int n = 40;
         System.out.println(finonacci(n));
