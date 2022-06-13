@@ -6,6 +6,8 @@ public class B_07_EqualDigitCountR {
     public static void main(String[] args) {
         String num = "1210";
         System.out.println(digitCount(num));
+        int a = Character.getNumericValue('a');
+        System.out.println(a);
     }
     public static boolean digitCount(String num) {
         //Q-2283
