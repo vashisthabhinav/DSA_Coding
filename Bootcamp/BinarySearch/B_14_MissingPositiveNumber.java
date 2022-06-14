@@ -8,7 +8,7 @@ public class B_14_MissingPositiveNumber {
         System.out.println(findKthPositive(arr,k));
     }
     public static int findKthPositive(int[] arr, int k) {
-        int missingPositive =0, start = 0, end = arr.length-1, kthMissingNum = 1;//Only checking from 1, so let kth missing number = 1
+        int missingPositive = 0, start = 0, end = arr.length-1, kthMissingNum = 1;//Only checking from 1, so let kth missing number = 1
 
         while (missingPositive<=k){
             if (binarySearch(arr,start,end,kthMissingNum)==-1) {

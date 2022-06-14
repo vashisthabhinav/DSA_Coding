@@ -8,6 +8,11 @@ public class B_01_BubbleSort {
         System.out.println("Arrays before Bubble Sort: " + Arrays.toString(arr));
         bubbleSort(arr);
         System.out.println("Arrays after Bubble Sort: " + Arrays.toString(arr));
+        int [] arr1 = {3,4,2,6,5,1};
+        System.out.println("Arrays before Bubble Sort Recursive: " + Arrays.toString(arr));
+        bubbleSortRecursive(arr1, arr1.length,0);
+        System.out.println("Arrays after Bubble Sort Recursive: " + Arrays.toString(arr));
+
     }
     public static void bubbleSort(int[] arr){
         //Bubble sort
@@ -30,6 +35,18 @@ public class B_01_BubbleSort {
                 //swapped is false is there was no swap in previous iteration so cancelling the next iteration
                 break;
             }
+        }
+    }
+    public static void bubbleSortRecursive(int[] nums, int row, int col){
+        if (row==0){
+            return;
+        }
+        if (col<row){
+            System.out.print("*");
+            bubbleSortRecursive(nums,row,col+1);
+        }
+        else{
+            bubbleSortRecursive(nums,row-1,0);
         }
     }
 }
