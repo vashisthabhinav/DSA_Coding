@@ -8,7 +8,6 @@ public class B_17_TwoSum2 {
         int target = 6;
         System.out.println(Arrays.toString(twoSum(numbers,target)));
         System.out.println(Arrays.toString(twoSum1(numbers,target)));
-
     }
     public static int[] twoSum(int[] numbers, int target) {
         //Q167
@@ -24,7 +23,7 @@ public class B_17_TwoSum2 {
     }
     public static int[] twoSum1(int[] numbers, int target) {
         //Q167
-        //We know that there is only one solution in teh entire array and the array is sorted
+        //We know that there is only one solution in the entire array and the array is sorted
         // So, we can simply check the first element and the last element for the sum
         //If the sum is larger than the target, we can instead check for the 2nd last element
         //If the sum is smaller than the target, we can instead check for the 2nd element

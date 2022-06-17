@@ -22,9 +22,9 @@ public class B_09_CyclicSort {
           }
         }
     }
-    public static void swap(int[] arr, int i, int correct) {
+    public static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
-        arr[i] = arr[correct];
-        arr[correct] = temp;
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
