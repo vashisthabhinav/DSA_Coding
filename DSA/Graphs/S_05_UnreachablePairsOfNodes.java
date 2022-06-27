@@ -1,8 +1,6 @@
 package DSA.Graphs;
 
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
 
 public class S_05_UnreachablePairsOfNodes {
     public static void main(String[] args) {
@@ -29,7 +27,6 @@ public class S_05_UnreachablePairsOfNodes {
                         hash.add(adj);
                         isVisited[adj] = true;
                     }
-
                 }
             }
         }

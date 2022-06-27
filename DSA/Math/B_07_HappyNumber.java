@@ -2,7 +2,7 @@ package DSA.Math;
 
 public class B_07_HappyNumber {
     public static void main(String[] args) {
-        int n = 2;
+        int n = 12;
         System.out.println(isHappy(n));
     }
     public static boolean isHappy(int n) {
