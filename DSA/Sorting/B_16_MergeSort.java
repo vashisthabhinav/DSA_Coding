@@ -22,7 +22,7 @@ public class B_16_MergeSort {
     }
 
     public static int[] merge(int[] first, int[] second) {
-        int[] mix = new int[first.length+ second.length];
+        int[] mix = new int[first.length + second.length];
         int
                 firstPointer = 0 ,
                 secondPointer = 0 ,
