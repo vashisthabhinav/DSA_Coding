@@ -9,7 +9,7 @@ public class S_01_BFS {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         int V = 10;
         for (int i = 0; i <= 10; i++) {
-            adj.add(i,new ArrayList<Integer>());
+            adj.add(i,new ArrayList<>());
         }
         /*
         Component 1
@@ -43,22 +43,27 @@ public class S_01_BFS {
         ArrayList<Integer> ans = new ArrayList<>();
         boolean[] isVisited = new boolean[V+1];
         for (int i = 1; i < adj.size(); i++) {
+            //Added to reassure that every element has been visited
             if (!isVisited[i]){
+                //Now, if the element is not visited,
                 Queue<Integer> queue = new LinkedList<>();
                 isVisited[i] = true;
                 queue.add(i);
+                //We add that element into the queue and mark it as isVisited
                 while (queue.size()!=0){
-                    int node = queue.poll();
-                    ans.add(node);
+                    //Now, checking the queue till its empty
+                    int node = queue.poll();//The current node in which we are at
+                    ans.add(node);//We can add this into the final answer arraylist
                     for (int adjacent:adj.get(node)) {
-                        if (!isVisited[adjacent]){
-                            queue.add(adjacent);
-                            isVisited[adjacent] = true;
+                        //Now checking for its adjacent nodes.
+                        if (!isVisited[adjacent]){//If the adjacent node is not visited,
+                            queue.add(adjacent);//Adding that adjacent node in the queue
+                            isVisited[adjacent] = true;//And marking it as true
                         }
                     }
                 }
             }
         }
-        return ans;
+        return ans;//Returning the final ans of Breadth-first Search
     }
 }

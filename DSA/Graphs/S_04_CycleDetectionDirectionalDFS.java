@@ -9,7 +9,7 @@ public class S_04_CycleDetectionDirectionalDFS {
         for (int i = 0; i <= n; i++) {
             adj.add(new ArrayList<>());
         }
-        /*
+
         //False case
         adj.get(1).add(2);
         adj.get(2).add(3);
@@ -23,7 +23,7 @@ public class S_04_CycleDetectionDirectionalDFS {
         adj.get(7).add(8);
         adj.get(8).add(9);
         adj.get(11).add(10);
-         */
+         /*
         //True Case
         adj.get(1).add(2);
         adj.get(2).add(3);
@@ -37,15 +37,19 @@ public class S_04_CycleDetectionDirectionalDFS {
         adj.get(9).add(10);
         adj.get(10).add(11);
         adj.get(11).add(7);
+        */
         System.out.println(isCycle(n,adj));
     }
 
     private static boolean isCycle(int n, ArrayList<ArrayList<Integer>> adj) {
+        //Now this is for the directional case.
+        //Here, two boolean arrays are made. One to count for isVisited and one for dfsVisited
         boolean[] isVisited = new boolean[n+1];
         boolean[] dfsVisited = new boolean[n+1];
-        for (int i = 1; i <= n; i++) {
-            if (!isVisited[i]){
-                if (checkCycleDFS(i,adj,isVisited,dfsVisited)){
+        for (int i = 1; i <= n; i++) {//For every node given
+            if(!isVisited[i]){//If that node is not visited
+                if (checkCycleDFS(i,adj,isVisited,dfsVisited)){//We will check for cycle
+                    //If cycle is present, returning true
                     return true;
                 }
             }

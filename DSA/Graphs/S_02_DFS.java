@@ -8,7 +8,7 @@ public class S_02_DFS {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
         int V = 10;
         for (int i = 0; i <= 10; i++) {
-            adj.add(i,new ArrayList<Integer>());
+            adj.add(i,new ArrayList<>());
         }
         /*
         Component 1
@@ -28,8 +28,9 @@ public class S_02_DFS {
         adj.get(3).add(5);
         adj.get(4).add(2);
         adj.get(5).add(3);
-        adj.get(6).add(10);
+
         adj.get(6).add(8);
+        adj.get(6).add(10);
         adj.get(7).add(10);
         adj.get(7).add(9);
         adj.get(8).add(6);
@@ -42,9 +43,10 @@ public class S_02_DFS {
         ArrayList<Integer> ans = new ArrayList<>();
         boolean[] isVisited = new boolean[V+1];
         for (int i = 1; i < adj.size() ; i++) {
-            if (!isVisited[i]){
-                dfs(adj,isVisited,i , ans);
-                isVisited[i] = true;
+            //Checking for every node
+            if (!isVisited[i]){//If that node is not visited yet, then
+                dfs(adj,isVisited,i , ans);//Return its dfs call
+                //isVisited[i] = true;//Mark its node as visited
             }
         }
         return ans;
@@ -53,10 +55,13 @@ public class S_02_DFS {
     private static void dfs(ArrayList<ArrayList<Integer>> adj, boolean[] isVisited, int node , ArrayList<Integer> ans) {
         isVisited[node] = true;
         ans.add(node);
+        //Marking the current node as visited and adding it into the ans
         for (int adjacent :adj.get(node)) {
-            if (!isVisited[adjacent]){
+            //Now for every adjacent for the current node
+            if (!isVisited[adjacent]){//If that node is not yet visited
                 dfs(adj,isVisited,adjacent, ans);
-                isVisited[adjacent] = true;
+                //We will run the function for that node to bring its adjacent node for the depth first search
+                isVisited[adjacent] = true;//Marking that adjacent node as true
             }
         }
     }

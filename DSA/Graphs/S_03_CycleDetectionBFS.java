@@ -17,31 +17,40 @@ public class S_03_CycleDetectionBFS {
         //Adding the parent node into the queue
         queue.add(new Node(currentNode,-1));
         isVisited[currentNode] = true;
+        //Making the parent of the current node as -1, then adding it into the queue and marking it as visited
         while (queue.size()!=0){
+            //Iterating over the loop till the queue is empty
             int node = queue.peek().node;
             int parent = queue.peek().parent;
             queue.remove();
+            //Taking node and parent from the first element in the queue and then removing it
             for (int presentNode:adj.get(node)) {
-                if (!isVisited[presentNode]){
-                    queue.add(new Node(presentNode,node));
-                    isVisited[presentNode] = true;
-                }else if (presentNode != parent){
+                //Now checking for the adjacent (or in this case the children of the node)
+                if (!isVisited[presentNode]){//If it has not already been visited, then
+                    queue.add(new Node(presentNode,node));//Adding it into the queue with parent as node
+                    isVisited[presentNode] = true;//And marking it as true
+                }else if (presentNode != parent){//else if the node has been already visited, then
+                    //If the present node (i.e., the adjacent of the node also meaning that it is the child of the node)
+                    //is not equal to parent, then it means that there are two different parent of this node
+                    // which can only be possible if there is a cycle present in the given graph. Hence, returning true
                     return true;
                 }
             }
         }
-        return false;
+        return false;//Else returning false in the end
     }
     public static boolean isCycle(int V, ArrayList<ArrayList<Integer>> adj){
-        boolean [] isVisited = new boolean[V+1];
+        boolean [] isVisited = new boolean[V+1];//Making a boolean array to check whether a node is visited or not
         for(int i = 1 ; i <= V ; i++){
-            if(!isVisited[i]){
-                if(checkForCycle(adj,i,isVisited)){
+            //For every node given
+            if(!isVisited[i]){//If that node is not visited
+                if(checkForCycle(adj,i,isVisited)){//We will check for cycle
+                    //If cycle is present, returning true
                     return true;
                 }
             }
         }
-        return false;
+        return false;//Else returning false
     }
     public static void main(String[] args) {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();

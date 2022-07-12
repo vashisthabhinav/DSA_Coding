@@ -1,6 +1,6 @@
 package DSA.Arrays;
 
-public class K_CheckXMatrix {
+public class K_16_CheckXMatrix {
     public static void main(String[] args) {
         int[][] matrix =
                 {

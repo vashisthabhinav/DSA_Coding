@@ -33,6 +33,7 @@ public class S_06_BipartiteGraphBFS {
         adj.get(4).add(6);
         adj.get(6).add(4);
 
+
         adj.get(1).add(6);
         adj.get(6).add(1);
 
