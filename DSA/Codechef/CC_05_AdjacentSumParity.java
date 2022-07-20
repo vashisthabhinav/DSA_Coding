@@ -12,13 +12,22 @@ public class CC_05_AdjacentSumParity {
             for (int i = 0; i < N; i++) {
                 A[i] = sc.nextInt();
             }
-            int ones = 0 ;
-            for (int i = 0; i < N; i++) {
-                if (A[i] == 1) ones++;
+            boolean oneCount = false;
+            for (int i = 0; i < N-1; i++) {
+                if (A[i]==1){
+                    oneCount = !oneCount;
+                }
             }
-            if (ones ==0 || ones == N/2 ) System.out.println("YES");
-            else System.out.println("NO");
+            if (oneCount && A[N-1]==1){
+                System.out.println("YES");
+            }else if (!oneCount && A[N-1]==0){
+                System.out.println("YES");
+            }else System.out.println("NO");
             T--;
         }
     }
 }
+/*
+When do we get 0’s in B? We will get 0s if both Ai and Ai+1 are even or both are odd. When 2 numbers are even or both numbers are odd, their sum is necessarily even.
+When do we get 1’s in B? We will get 1s if either Ai is even and Ai+1 is odd or vice-versa
+ */

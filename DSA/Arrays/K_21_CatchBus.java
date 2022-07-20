@@ -2,7 +2,7 @@ package DSA.Arrays;
 
 import java.util.Arrays;
 
-public class K_CatchBus {
+public class K_21_CatchBus {
     public static void main(String[] args) {
         int[] buses = {20,30,10};
         int[] passengers = {19,13,26,4,25,11,21};
